@@ -23,7 +23,13 @@
         error.style.visibility = "visible";
         return false;
       }
+    });
 
+    $('[type="tel"]').keyup(function() {
+        var num = $(this).val().replace(/\D/g,'');
+        (event.key === "Backspace")
+          ? num.slice(0,-1)
+          : $(this).val('(' + num.substring(0, 3) + ') ' + num.substring(3, 6) + '-' + num.substring(6, 10));
     });
   });
 </script>
@@ -53,16 +59,16 @@
     <div class="input-group-prepend">
       <span class="input-group-text"><i class="fa fa-phone"></i></span>
     </div>
-    <input required autocomplete="off" id="phone" type="number" class="form-control" name="phone" placeholder="0111 111 222">
-    <span id="error" type="text" vissiblity='hidden'></span>
+    <input required autocomplete="off" id="phone" type="tel" class="form-control" name="phone" placeholder="(nnn)nnn-nnnn">
+    <span id="error" type="text" visiblity='hidden'></span>
   </div>
 
   <div class="input-group mb-3">
     <div class="input-group-prepend">
       <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
     </div>
-    <input autocomplete="off" id="mobile" type="number" class="form-control" name="mobile" placeholder="0711 111 222">
-    <span id="error" type="text" vissiblity='hidden'></span>
+    <input autocomplete="off" id="mobile" type="tel" class="form-control" name="mobile" placeholder="(nnn)nnn-nnnn">
+    <span id="error" type="text" visiblity='hidden'></span>
   </div>
 
   <div class="input-group mb-3">
