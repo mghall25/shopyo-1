@@ -1,0 +1,54 @@
+{% extends "base/main_base.html" %}
+
+{% set active_page ='products' %}
+
+{% block pagehead %}
+<title>SpareParts</title>
+{% endblock %}
+
+{% block content %}
+
+  <h2>products for {{SECTION_NAME}} {{manufac}}</h2>
+    <table class="table">
+            <thead>
+              <tr>
+                <th>barcode</th>
+                <th>name</th>
+                <th>description</th>
+                <th>category</th>
+                <th>date</th>
+                <th>price</th>
+                <th>selling price</th>
+                <th>discontinued</th>
+                <th>in stock</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {%for p in products%}
+              <tr>
+                <td>{{p.barcode}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.description}}</td>
+                <td>{{p.category}}</td>
+                <td>{{p.date}}</td>
+                <td>{{p.price}}</td>
+                <td>{{p.selling_price}}</td>
+                <td>{{p.discontinued}}</td>
+                <td>{{p.in_stock}}</td>
+                
+                <td style="">
+                  <a 
+                      href="/prods/edit/{{manufac}}/{{p.barcode}}" class="btn btn-warning" role="button">
+                    <i class="fas fa-pencil-alt"></i>
+                  </a>
+                  <a href="/prods/delete/{{manufac}}/{{p.barcode}}" class="btn btn-danger" role="button">
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </td>
+              </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+
+{% endblock %}

@@ -17,7 +17,9 @@ Featured on [Weekly Python issue 436](https://newsletry.com/Home/Python%20Weekly
 
 # ⚗️ Stability
 
-**alpha** - highly volatile, core features not yet finished
+**beta** - now in beta!
+
+~**alpha** - highly volatile, core features not yet finished~
 
 # 💌 Contributing Countries
 
@@ -34,14 +36,14 @@ Featured on [Weekly Python issue 436](https://newsletry.com/Home/Python%20Weekly
 
 - Appointment section
 
-# Testimonial
+# 📜 Testimonial
 
  >  This is my first time contributing to a public repo and I have quite enjoyed it. If you're a ``first-time-contributor`` the community is very helpful and can help you progress. Since I have been helping in this repo, I have also learnt a few things myself. The owner of the repo is active and is always willing to help.
 >
 > Also, if I'm around and you're stuck give us a shout. I'll help if I can. ``@blips5``
 
 
-# Understand Shopyo
+# 🔎 Understand Shopyo
 
 Shopyo internals explained here: [Shopyo: Enhance Your Flask by Exploring An Advanced Flask App](https://www.pythonmembers.club/2020/02/25/shopyo-enhance-your-flask-by-exploring-an-advanced-flask-app/)
   
@@ -65,8 +67,31 @@ See [this](https://www.linkedin.com/feed/update/urn:li:activity:6551367967978979
 # ♨️ Contributing
 
 If you want to contribute, go ahead, we ❤️ it. We follow a 💯 % first-timers-friendly policy.
-
+- Fork repo.
+- Create a new branch. For example: `bg-fix-migration-file`.
+- Once you have add your changes ensure tests are still passing.
+- Add tests for any new functionality added.
+- Ensure you commits follow the standard specified [here](https://udacity.github.io/git-styleguide/).
+- Follow the Pull request [template](.PULL_REQUEST_TEMPLATE.md).
 - Add your country flag in readme after accepted PR
+
+- Update fork as below then
+- Push
+```
+git push origin <branch-name>
+```
+- If it closes an issue, add `Fixes #94` for example, as seen [here](https://github.com/Abdur-rahmaanJ/shopyo/pull/95)
+-  PR against `dev` branch, not master
+
+# Update Fork
+
+```
+cd <your/local/cloned/repo/path/here>
+git remote add upstream https://github.com/Abdur-rahmaanJ/shopyo.git
+git fetch upstream
+git pull upstream master
+```
+
 
 # 💬 Community: Discord
 [https://discord.gg/k37Ef6w](https://discord.gg/k37Ef6w)
@@ -81,14 +106,6 @@ If you want to contribute, go ahead, we ❤️ it. We follow a 💯 % first-time
 
 ``cd`` into shopyo/shopyo if not already.
 
-initialise database.
-
-```
-python manage.py db init
-python manage.py db migrate
-python manage.py db upgrade
-```
-
 initialise and setup app.
 
 ```python
@@ -98,7 +115,7 @@ python manage.py initialise
 run the app.
 
 ```python
-python manage.py runsever
+python manage.py runserver
 ```
 
 go to the indicated url
@@ -119,6 +136,38 @@ python manage.py db migrate
 pyhton manage.py db upgrade
 ```
 
+# Complete commands
+
+initialise database.
+
+```
+python manage.py db init # create db from new
+python manage.py db migrate
+python manage.py db upgrade
+```
+
+clean project
+
+```
+python manage.py clean
+```
+
+removes `__pycache__/`, `test.db` and ``migrations``.
+
+# :scroll: Docs
+Sphinx docs generater
+       
+Run
+
+```
+sphinx-build -b html sphinx_source docs
+```
+
+in `shopyo/` to generate docs
+
+[Read the docs for Sphinx Alablaster](
+https://alabaster.readthedocs.io/en/latest/ "Sphinx Alablaster") 
+     
 # :construction: Developing a template.
 
 <details><summary><b>Show me how</b></summary>
@@ -224,13 +273,13 @@ Then the navagation elements will be displayed in the new section.
 - ✔️ Easy dev/production mode switch
 - ✔️ Login
 - ✔️ Api namespacing / apps
+- ✔️ Django-like structure (where models, views and templates all in one  folder)
 
 In Progress
 
 - 🔃 Unit tests
 - 🔃 Integration tests
 - 🔃 Permission levels
-- 🔃 Django-like structure (where models, views and templates all in one  folder)
 
 Crossed Out
 
